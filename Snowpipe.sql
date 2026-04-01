@@ -47,7 +47,7 @@ SELECT SYSTEM$PIPE_STATUS('csv_pipe');
 SELECT * FROM TABLE( INFORMATION_SCHEMA.COPY_HISTORY
 	(TABLE_NAME  =>  'dbp.spipe.emp_data',
 	 START_TIME => DATEADD(HOUR, -10 ,CURRENT_TIMESTAMP()))
-);
+); --Uses to verify the Files history if Snowpipe got failed to load the data.
 
 // Step3: Validate the pipe load
 SELECT * FROM TABLE(INFORMATION_SCHEMA.VALIDATE_PIPE_LOAD
